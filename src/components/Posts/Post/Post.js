@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Typography, CardHeader, Avatar, IconButton } from '@mui/material';
 import {Delete} from '@mui/icons-material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { red } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from 'react-redux';
@@ -45,6 +44,7 @@ const Post = ({post, setCurrentId}) => {
       <CardMedia
         component="img"
         height="194"
+        sx={{objectFit:'initial'}}
         image={post.selectedFile} title={post.title} 
       />
       <div>

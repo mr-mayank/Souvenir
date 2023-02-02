@@ -1,15 +1,22 @@
-import { CREATE_POST, UPDATE_POST, FETCH_POSTS, DELETE_POST  } from '../constants/actionTypes.js';
-export default (posts = [], action) => {
+import { CREATE_POST, UPDATE_POST, FETCH_POSTS, DELETE_POST, FETCH_BY_SEARCH  } from '../constants/actionTypes.js';
+export default (state = [], action) => {
     switch (action.type) {
         case UPDATE_POST:
-        return posts.map((post) => post._id === action.payload._id ? action.payload : post);
+            return { ...state, posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post)) };
         case FETCH_POSTS:
-        return  action.payload ;
+            return {
+                ...state,
+                posts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
+              };
+        case FETCH_BY_SEARCH:
+            return { ...state, posts: action.payload.data };
         case CREATE_POST:
-        return [...posts, action.payload];
+            return { ...state, posts: [...state.posts, action.payload] };
         case DELETE_POST:
-        return posts.filter((post) => post._id !== action.payload);
+            return { ...state, posts: state.posts.filter((post) => post._id !== action.payload) };
         default:
-        return posts;
+        return state;
     }
     }
