@@ -1,6 +1,7 @@
 import { AppBar,  Avatar,  Button,  Toolbar,  Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import decode from 'jwt-decode';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import memories from '../../images/memories.png';
 const Nav = () => {
@@ -20,6 +21,10 @@ const Nav = () => {
         const token = user?.token;
 
         if (token) {
+
+          const decodedToken = decode(token);
+
+          if(decodedToken.exp * 1000 < new Date().getTime()) logout();
            
         }
         setUser(JSON.parse(localStorage.getItem('profile')));
@@ -32,10 +37,10 @@ const Nav = () => {
           <img src={memories} alt="icon" height="60" />
         </div>
         <Toolbar>
-          {user ? (
+          {user?.result ? (
             <div >
-              <Avatar  alt={user?.name} src={user.imageUrl}>{user?.name.charAt(0)}</Avatar>
-              <Typography  variant="h6">{user?.name}</Typography>
+              <Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
+              <Typography  variant="h6">{user?.result.name}</Typography>
               <Button variant="contained"color="secondary" onClick={logout}>Logout</Button>
             </div>
           ) : (
