@@ -18,8 +18,9 @@ const Paginate = ({page}) => {
         }
     }, [page]);
     return (
-        <Stack spacing={2} sx={{ my: 5 }}>
+        <Stack spacing={2} >
         <Pagination
+            sx={{justifyContent: 'space-around'}}
             count={numberOfPages}
             page={Number(page) || 1}
             variant="outlined"

@@ -7,7 +7,7 @@ import { createPost, updatePost } from '../../actions/posts.js';
 
 const Form = ({currentId , setCurrentId}) => {
     const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' });
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('profile'));
     useEffect(() => {
@@ -41,7 +41,7 @@ const Form = ({currentId , setCurrentId}) => {
         );
     }
     return (
-        <Paper >
+        <Paper elevation={6} >
             <form autoComplete="off" noValidate onSubmit={handleSubmit}>
                 <Typography variant="h6"> {currentId ? 'Edditing' : 'Creating'} a Memory</Typography>
                 <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />

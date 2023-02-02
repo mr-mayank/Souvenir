@@ -65,10 +65,14 @@ function Home() {
 
     </AppBar>
     <Form currentId = {currentId} setCurrentId={setCurrentId} />
-    <Paper elevation={6}>
-      {/* <Paginate page={2} setPage={3} numPages={5} /> */}
+    {
+      (!searchQuery) && (
+    <Paper elevation={6} sx={{borderRadius:3, marginTop:'0.5rem', padding:'16px' }}>
       <Paginate page={page} />
     </Paper>
+      )
+
+    }
   </Grid>
 </Grid>
 </Container>
