@@ -35,16 +35,3 @@ const Paginate = ({page}) => {
         
 
 export default Paginate;
-
-/* </Stack> 
-         <Stack spacing={2} sx={{ my: 5 }}>
-        <Pagination
-            count={numPages}
-            page={page}
-            color="primary"
-            onChange={(e) => handlePageChange(e.target.textContent)}
-            renderItem={(item) => (
-            <PaginationItem {...item} component={Link} to={`/posts?page=${1}`} />
-            )}
-        />
-        </Stack> */

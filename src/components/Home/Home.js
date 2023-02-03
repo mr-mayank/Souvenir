@@ -6,6 +6,7 @@ import { getPosts, getPostsBySearch } from '../../actions/posts';
 import Form from '../Form/Form'
 import Posts from '../Posts/Posts'
 import Paginate from '../Pagination';
+import { Search } from '@mui/icons-material';
 
 const theme = createTheme();
 const useQuery = () => {
@@ -39,7 +40,7 @@ function Home() {
 <Grow in>
 <Container maxWidth="xl">
 <Grid sx={{
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     flexDirection: 'column-reverse',
   },
 }} container justifyContent="space-between" alignItems="stretch" spacing={3} >
@@ -47,21 +48,14 @@ function Home() {
     <Posts setCurrentId={setCurrentId}/>
   </Grid>
   <Grid item xs={12} sm={6} md={3}>
-    <AppBar position='static' color='inherit'>
-      <TextField sx={{ borderRadius:4, 
-        marginBottom: '1rem',
-        display: 'flex',
-        padding: '16px',
-       }} 
+    <AppBar position='static' color='inherit' sx={{borderRadius: '4', marginBottom: '1rem', display: 'flex', padding: '16px' }} >
+      <TextField sx={{marginBottom: '10px'}} 
        name='search' variant='outlined'
        onKeyPress={handleKEyPress}
-       label='Search Memories' fullWidth value={search} 
+       label='Search Post By Title' fullWidth value={search} 
        
        onChange={(e) => setSearch(e.target.value)} />
-        {/* onChange={(e) => history(`/posts/search?searchQuery=${e.target.value || 'none'}`)} /> */}
-      
-      <Chip sx={{ marginBottom: '1rem', cursor: 'pointer' }} label='Search' onClick={searchPost} variant='outlined' />
-
+      <Chip variant="outlined" color='primary' icon={<Search />} sx={{ marginBottom: '1rem', cursor: 'pointer' }} label='Search' onClick={searchPost}  />
 
     </AppBar>
     <Form currentId = {currentId} setCurrentId={setCurrentId} />

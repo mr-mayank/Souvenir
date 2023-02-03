@@ -33,7 +33,7 @@ const Nav = () => {
     return (
         <AppBar  position="static" color="inherit">
         <div>
-          <Typography component={Link} to="/"  variant="h2" align="center">Memories</Typography>
+          <Typography component={Link} to="/"  variant="h2" align="center">Souvenir</Typography>
           <img src={memories} alt="icon" height="60" />
         </div>
         <Toolbar>

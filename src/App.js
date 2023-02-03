@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import Nav from './components/Nav/Nav.js';
+import Nav from './components/Navbar/Navbar.js';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/Home/Home.js';
 import Signin from './components/SignIn/Signin.js';
