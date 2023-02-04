@@ -37,7 +37,7 @@ const Form = ({currentId , setCurrentId}) => {
             <ThemeProvider theme={theme}>
             <Paper sx={{padding: theme.spacing(2)}}>
                 <Typography variant="h6" align="center">
-                    Please Sign In to create your own memories and like other's memories.
+                    Please Sign In to create your own Posts and like other's Posts.
                     </Typography>
             </Paper>
             </ThemeProvider>

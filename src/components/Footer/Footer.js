@@ -7,13 +7,14 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import Paper from '@mui/material/Paper';
+import { Link, Navigate } from 'react-router-dom';
 
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
 
- 
+  
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
       <CssBaseline />
@@ -23,9 +24,9 @@ export default function FixedBottomNavigation() {
           value={value}
           onChange={(event, newValue) => {
             setValue(newValue);
-          }}
+          }}    
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Recents" icon={<RestoreIcon  />} />
           <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
           <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
         </BottomNavigation>

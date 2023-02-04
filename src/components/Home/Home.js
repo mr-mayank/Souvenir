@@ -48,7 +48,7 @@ function Home() {
     <Posts setCurrentId={setCurrentId}/>
   </Grid>
   <Grid item xs={12} sm={6} md={3}>
-    <AppBar position='static' color='inherit' sx={{borderRadius: '4', marginBottom: '1rem', display: 'flex', padding: '16px' }} >
+    <AppBar elevation={6} position='static' color='inherit' sx={{borderRadius: '8px', marginBottom: '1rem', display: 'flex', padding: '16px' }} >
       <TextField sx={{marginBottom: '10px'}} 
        name='search' variant='outlined'
        onKeyPress={handleKEyPress}

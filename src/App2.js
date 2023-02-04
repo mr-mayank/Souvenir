@@ -6,6 +6,7 @@ import Home from './components/Home/Home.js';
 import Signin from './components/SignIn/Signin.js';
 import Signup from './components/SignUp/Signup.js';
 import Footer from './components/Footer/Footer.js';
+import ChatHome from './pages/ChatHome.jsx';
 function App() {
   
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -16,9 +17,7 @@ function App() {
       <Nav />
     <br></br>
         <Routes>
-          <Route path="/"  element={<Navigate replace to="/posts" />} />
-          <Route path="/posts" exact element={<Home />} />
-          <Route path="/posts/search" exact element={<Home />} />
+        <Route index element={<ChatHome />} />
           <Route path="/signin" exact element={ !user ?  <Signin /> : <Navigate replace to="/posts" /> } />
           <Route path="/signup" exact element={ !user ?  <Signup /> : <Navigate replace to="/posts" /> } />
         </Routes>
