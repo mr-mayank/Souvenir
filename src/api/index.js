@@ -26,3 +26,10 @@ export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
+
+export const getConversation = (id) => API.get(`/chats/${id}`);
+export const getConversations = () => API.get('/chats');
+export const createConversation = (newConversation) => API.post('/chats', newConversation);
+
+export const getMessages = (id) => API.get(`/msg/${id}`);
+export const createMessage = (newMessage) => API.post('/msg', newMessage);
