@@ -23,4 +23,4 @@ export default (state = {isLoading:true, posts: [] }, action) => {
         default:
         return state;
     }
-    }
+}

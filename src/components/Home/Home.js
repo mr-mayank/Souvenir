@@ -7,6 +7,8 @@ import Form from '../Form/Form'
 import Posts from '../Posts/Posts'
 import Paginate from '../Pagination';
 import { Search } from '@mui/icons-material';
+import ChatHome from '../../pages/ChatHome';
+import { getConversation } from '../../actions/convo';
 
 const theme = createTheme();
 const useQuery = () => {
@@ -30,6 +32,7 @@ function Home() {
       history('/');
     }
   }
+
   const handleKEyPress = (e) => {
     if(e.keyCode === 13) {
       searchPost();
@@ -56,7 +59,6 @@ function Home() {
        
        onChange={(e) => setSearch(e.target.value)} />
       <Chip variant="outlined" color='primary' icon={<Search />} sx={{ marginBottom: '1rem', cursor: 'pointer' }} label='Search' onClick={searchPost}  />
-
     </AppBar>
     <Form currentId = {currentId} setCurrentId={setCurrentId} />
     {
